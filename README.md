@@ -27,16 +27,18 @@ python agent.py
 ```
 
 ## 🛡️ Hardened Safety Features
-- **Contextual Guard**: The agent is forbidden from guessing Model types or Halo masses. It will check your original message for mandatory parameters.
-- **Redshift Validation**: Rejects any request where $z_{source} \leq z_{lens}$ or $z_{source} > 1.0$.
-- **Model Support**: Full support for Model I (Standard), Model II (Euclid), Model III (HST), and Model IV (Multi-band synthetic).
+- **Hardened Human-in-the-Loop**: The agent is now strictly forbidden from guessing core parameters. It will actively explain constraint violations (e.g., $z_{gal} \leq z_{halo}$) back to the user.
+- **Redshift Limits**: Strictly enforces $z_{gal} \leq 1.0$ across all models with Pydantic-level validation.
+- **Numerical Stability**: Injected `colossus` global cosmology (`planck15`) to prevent backend interpolation crashes.
+- **Model IV Synthesis**: Support for multi-band Euclid images with advanced astro-parameters (`sigma_v`, etc.).
 
 ## 📂 Project Structure
 - `agent.py`: Main Pydantic AI agent logic & chat loop.
 - `tools.py`: Simulation backend with Colossus stability patches.
 - `schemas.py`: Rigid Pydantic validation schemas.
 - `DeepLenseSim/`: Submodule containing the core physics library.
-- `output/`: Generated `.npy` and `.png` files.
+- `Tests/`: Generated `.npy` and `.png` verification results (pushed to repo).
+- `tests.md`: Master list of 20 verification prompts.
 
 ---
 

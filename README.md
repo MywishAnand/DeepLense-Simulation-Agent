@@ -1,6 +1,6 @@
-# 🌌 DeepLense Simulation Agent (Context-Aware)
+# 🌌 DeepLense Simulation Agent
 
-A conversational astrophysicist-AI-powered agent for the **DeepLenseSim** pipeline for Gravitational Lensing simulations.
+A context-aware, conversational, AI-powered agent for Gravitational Lensing simulations with the **DeepLenseSim** pipeline.
 
 ## 🚀 Quick Start
 

@@ -46,7 +46,7 @@ A **conversational, context-aware agentic system** for generating **Gravitationa
   
   - 🌌 **Redshift Ordering Enforcement**  
     Rejects invalid configurations where:  
-    `z_source ≤ z_lens`
+    `z_source > z_lens`
   
   - 📏 **Redshift Upper Bound**  
     Enforces:  

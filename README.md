@@ -83,7 +83,7 @@ Built-in **astrophysical validation layer** using Pydantic:
 
   ```bash
   ollama pull llama3.2
-````
+  ```
 
 * 🐍 **Python 3.9+**
 
@@ -154,28 +154,3 @@ python agent.py
 ```
 
 ---
-
-## 🎯 Why This Project Matters
-
-This project sits at the intersection of:
-
-* 🤖 **AI Agents**
-* 🌌 **Astrophysical Simulation**
-* 🧪 **Scientific Workflows**
-
-It enables:
-
-* Faster experimentation in gravitational lensing
-* Reliable, reproducible simulations
-* Human-controlled AI-assisted research pipelines
-
----
-
-## 🔮 Future Improvements
-
-* Add **web UI / dashboard**
-* Support **batch experiment tracking**
-* Integrate with **ML pipelines for lens detection**
-* Extend to **real observational datasets**
-
-```

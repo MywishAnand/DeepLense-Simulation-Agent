@@ -39,7 +39,7 @@ python agent.py
 - `DeepLenseSim/`: Submodule containing the core physics library.
 - `Tests/`: Static directory of example simulation results (pushed to repo).
 - `output/`: Functional directory for subsequent simulation outputs (ignored by git).
-- `tests.md`: Master list of 20 verification prompts.
+- `Tests/README.md`: Master list of 20 verification prompts.
 
 
 ---

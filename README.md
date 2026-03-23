@@ -29,7 +29,7 @@ A **conversational, context-aware agentic system** for generating **Gravitationa
 
 ## ✨ Unique Functionalities
 
-### 🧠 Contextual Guard (No Hallucination Zone)
+#### 🧠 Contextual Guard (No Hallucination Zone)
 
 Unlike typical AI agents, this system:
 
@@ -41,7 +41,7 @@ Unlike typical AI agents, this system:
 
 ---
 
-### ⚛️ Physics-Strict Constraints
+#### ⚛️ Physics-Strict Constraints
 
 Built-in **astrophysical validation layer** using Pydantic:
 
@@ -55,7 +55,7 @@ Built-in **astrophysical validation layer** using Pydantic:
 
 ---
 
-### 🛠️ Numerical Stability Enhancements
+#### 🛠️ Numerical Stability Enhancements
 
 - Integrated **global cosmology (`planck15`) via `colossus`**
 - Prevents common interpolation crashes:  
@@ -65,7 +65,7 @@ Built-in **astrophysical validation layer** using Pydantic:
 
 ---
 
-### 🌈 Model IV Multi-Band Synthesis
+#### 🌈 Model IV Multi-Band Synthesis
 
 - Dedicated pipeline for **RGB image generation**
 - Supports **Euclid-like simulations** using:
@@ -75,7 +75,7 @@ Built-in **astrophysical validation layer** using Pydantic:
 
 ## ⚡ Quick Start
 
-### 1️⃣ Prerequisites
+#### 1️⃣ Prerequisites
 
 - 🧠 **Ollama** (with Llama 3.2 model)
 
@@ -87,7 +87,7 @@ Built-in **astrophysical validation layer** using Pydantic:
 
 ---
 
-### 2️⃣ Installation
+#### 2️⃣ Installation
 
 ```bash
 # Create virtual environment
@@ -100,7 +100,7 @@ pip install -r requirements.txt
 
 ---
 
-### 3️⃣ Run the Agent
+#### 3️⃣ Run the Agent
 
 ```bash
 python agent.py

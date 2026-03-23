@@ -1,0 +1,242 @@
+:root {
+  /* Cosmic Color Palette */
+  --bg-deep: hsl(230, 45%, 4%);
+  --bg-space: hsl(235, 40%, 8%);
+  --accent-nebula: hsl(280, 70%, 60%);
+  --accent-star: hsl(190, 80%, 70%);
+  --text-primary: hsl(210, 20%, 95%);
+  --text-secondary: hsl(210, 10%, 70%);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Cosmic Background */
+.space-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, #1a1b3a 0%, #0a0b1e 100%);
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat;
+  opacity: 0.5;
+  animation: move-stars 200s linear infinite;
+}
+
+@keyframes move-stars {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 5000px; }
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 20px;
+}
+
+/* Layout */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding: 1.5rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent-star), var(--accent-nebula));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+}
+
+.hero {
+  text-align: center;
+  padding: 6rem 0;
+  animation: fade-in 1s ease-out;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.card {
+  padding: 2.5rem;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-star);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card i {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-star);
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+}
+
+/* Mock Chat Interface */
+.chat-demo {
+  margin-top: 4rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.message {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  max-width: 80%;
+}
+
+.user-msg {
+  background: rgba(255, 255, 255, 0.1);
+  margin-left: auto;
+  border-bottom-right-radius: 2px;
+}
+
+.agent-msg {
+  background: rgba(142, 68, 173, 0.2);
+  margin-right: auto;
+  border-bottom-left-radius: 2px;
+  border-left: 3px solid var(--accent-nebula);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gallery Section */
+.gallery-section {
+  margin-top: 6rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.result-card {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.result-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.result-card:hover img {
+  transform: scale(1.05);
+}
+
+.result-info {
+  padding: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent-star), var(--accent-nebula));
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 20px rgba(0, 195, 255, 0.4);
+}

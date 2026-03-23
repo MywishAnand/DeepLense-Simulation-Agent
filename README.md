@@ -2,8 +2,6 @@
 
 A **conversational, context-aware agentic system** for generating **Gravitational Lensing simulations** using the **DeepLenseSim** pipeline.
 
-This project combines **LLMs + physics simulation + agentic workflows** to enable **prompt-driven scientific experimentation** with strict physical validity.
-
 ---
 
 ## 🚀 Core Capabilities

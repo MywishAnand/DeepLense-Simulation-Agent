@@ -1,6 +1,6 @@
 # DeepLenseSim Agent: 20 Test Prompts
 
-Use these prompts to verify the functionality, physics, and safety constraints of your DeepLenseSim Agent.
+The model was tested with the following 20 prompts to verify the functionality, physics, and safety constraints of this DeepLenseSim Agent. The output files in .png and .npy formats are shared in this directory.
 
 ## 🔭 Basic Model & Instrument Verification
 1. **Model I:** "Generate a Model I simulation with CDM substructure and a 1e12 halo mass."

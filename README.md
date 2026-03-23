@@ -21,10 +21,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Run the Agent
-```bash
-python agent.py
-```
+## ✨ Unique Features & Scientific Innovations
+
+- **🧠 Contextual Guard (No Hallucination Zone)**: Unlike standard AI agents, this system is **physically prohibited** from guessing parameters. It injects your raw prompt directly into the simulation tool to verify you actually typed the Model and Mass, ensuring 100% human-in-the-loop fidelity.
+- **⚛️ Physics-Strict Constraints**: Automated Pydantic-level validation for astrophysical consistency:
+    - **Redshift Ordering**: Rejects $z_{source} \leq z_{lens}$ with a scientific explanation.
+    - **Redshift Capping**: Hard-capped at $z \leq 1.0$ for instrument consistency.
+- **🛠️ Numerical Stabilization Patches**: Injected a global `colossus` background cosmology (`planck15`) in `tools.py`. This prevents the "Interpolation Range" crashes (`x_new < 0.001`) common in custom-redshift simulations.
+- **🌈 Model IV Multi-Band Synthesis**: Integrated a dedicated pipeline for **3-channel RGB synthesis** (`g`, `r`, `i` bands) for Model IV Euclid simulations.
+- **📂 Bifurcated Data Architecture**: Clear separation between your personal **Verification Gallery (`Tests/`)** and your live **Research Workspace (`output/`)**.
 
 ## 🛡️ Hardened Safety Features
 - **Hardened Human-in-the-Loop**: The agent is now strictly forbidden from guessing core parameters. It will actively explain constraint violations (e.g., $z_{gal} \leq z_{halo}$) back to the user.

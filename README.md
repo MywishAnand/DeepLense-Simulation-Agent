@@ -1,6 +1,6 @@
 # 🌌 DeepLense Simulation Agent (Context-Aware)
 
-A hardened, astrophysicist-AI-powered agent for the **DeepLenseSim** pipeline.
+A conversational astrophysicist-AI-powered agent for the **DeepLenseSim** pipeline for Gravitational Lensing simulations.
 
 ## 🚀 Quick Start
 
@@ -37,11 +37,6 @@ python agent.py
 - `tools.py`: Simulation backend with Colossus stability patches.
 - `Schemas.py`: Rigid Pydantic validation schemas.
 - `DeepLenseSim/`: Submodule containing the core physics library.
-- `Tests/`: Static directory of example simulation results (pushed to repo).
+- `Tests/README.md`: Master list of 20 verification prompts, this agent has been tested on.
+- `Tests/`: Simulation outputs of the test prompts.
 - `output/`: Functional directory for subsequent simulation outputs (ignored by git).
-- `Tests/README.md`: Master list of 20 verification prompts.
-
-
----
-
-*This agent was developed to automate high-fidelity strong lensing research with human-in-the-loop oversight.*

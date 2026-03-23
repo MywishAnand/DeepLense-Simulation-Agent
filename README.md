@@ -107,25 +107,25 @@ python agent.py
 
 ## 🧪 How to Use
 
-1. Start Ollama:
+1️⃣ Start Ollama:
 
    ```bash
    ollama run llama3.2
    ```
 
-2. Activate environment:
+2️⃣ Activate environment:
 
    ```bash
    source venv/bin/activate
    ```
 
-3. Launch the agent:
+3️⃣ Launch the agent:
 
    ```bash
    python agent.py
    ```
 
-4. Provide a simulation prompt:
+4️⃣ Provide a simulation prompt:
 
    **Example:**
 

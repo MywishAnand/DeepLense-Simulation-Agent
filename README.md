@@ -8,6 +8,14 @@ A conversational, context-aware agentic workflow for generating Gravitational Le
 - includes Human-in-the-loop component and follow-up questions for clarifications before execution.
 - comprises a contextual guard to prevent any guessing or hallucinations by the Ollama model.
 
+## ✨ Unique Functionalities
+- **🧠 Contextual Guard (No Hallucination Zone)**: Unlike standard AI agents, this system is **physically prohibited** from guessing parameters. It injects your raw prompt directly into the simulation tool to verify you actually typed the Model and Mass, ensuring 100% human-in-the-loop fidelity.
+- **⚛️ Physics-Strict Constraints**: Automated Pydantic-level validation for astrophysical consistency:
+    - **Redshift Ordering**: Rejects $z_{source} \leq z_{lens}$ with a scientific explanation.
+    - **Redshift Capping**: Hard-capped at $z \leq 1.0$ for instrument consistency.
+- **🛠️ Numerical Stabilization Patches**: Injected a global `colossus` background cosmology (`planck15`) in `tools.py`, preventing the "Interpolation Range" crashes (`x_new < 0.001`) common in custom-redshift simulations.
+- **🌈 Model IV Multi-Band Synthesis**: Integrated a dedicated pipeline for **3-channel RGB synthesis** (`g`, `r`, `i` bands) for Model IV Euclid simulations.
+
 ## 🚀 Quick Start
 
 ### 1. Prerequisites
@@ -46,11 +54,3 @@ python agent.py
 - `Tests/README.md`: Master list of 20 verification prompts, the agent was tested upon.
 - `Tests/`: Simulation outputs of the test prompts.
 - `output/`: Directory for subsequent simulation outputs.
-
-## ✨ Unique Features
-- **🧠 Contextual Guard (No Hallucination Zone)**: Unlike standard AI agents, this system is **physically prohibited** from guessing parameters. It injects your raw prompt directly into the simulation tool to verify you actually typed the Model and Mass, ensuring 100% human-in-the-loop fidelity.
-- **⚛️ Physics-Strict Constraints**: Automated Pydantic-level validation for astrophysical consistency:
-    - **Redshift Ordering**: Rejects $z_{source} \leq z_{lens}$ with a scientific explanation.
-    - **Redshift Capping**: Hard-capped at $z \leq 1.0$ for instrument consistency.
-- **🛠️ Numerical Stabilization Patches**: Injected a global `colossus` background cosmology (`planck15`) in `tools.py`, preventing the "Interpolation Range" crashes (`x_new < 0.001`) common in custom-redshift simulations.
-- **🌈 Model IV Multi-Band Synthesis**: Integrated a dedicated pipeline for **3-channel RGB synthesis** (`g`, `r`, `i` bands) for Model IV Euclid simulations.

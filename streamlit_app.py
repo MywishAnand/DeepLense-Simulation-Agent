@@ -49,13 +49,16 @@ for message in st.session_state.messages:
 
 # Helper to extract image paths from agent output
 def extract_image_paths(text):
-    # Regex to find .png paths mentioned in the text
-    paths = re.findall(r'(/[^\s]+\.png)', text)
-    # Also handle relative paths if mentioned
-    rel_paths = re.findall(r'((\w+/)*\w+\.png)', text)
-    combined = list(set(paths + [p[0] for p in rel_paths]))
-    # Filter to only existing files
-    return [p for p in combined if os.path.exists(p)]
+    # Regex to find .png paths mentioned in the text, handles spaces better
+    # It looks for anything from a '/' or start of word until it sees '.png'
+    # Then we check if the path (potentially with spaces) exists.
+    matches = re.findall(r'(/[^\n]+?\.png|[^\n]+?\.png)', text)
+    valid_paths = []
+    for m in matches:
+        p = m.strip().strip("`").strip("'").strip('"')
+        if os.path.exists(p):
+            valid_paths.append(p)
+    return list(set(valid_paths))
 
 # Chat Input
 if prompt := st.chat_input("Ask for a simulation (e.g. 'Model I, CDM, 1e12 mass, z_halo 0.5, z_gal 1.0')"):

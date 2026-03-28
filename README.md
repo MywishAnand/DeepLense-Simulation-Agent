@@ -1,29 +1,93 @@
-# 🌌 DeepLense Simulation Agent
+# 🌌 DeepLenseSim AI Agent
 
-A conversational, context-aware agentic workflow for generating Gravitational Lensing images with the **DeepLenseSim** simulation pipeline. 
+A **context-aware, conversational agentic system** for generating **Gravitational Lensing simulations** using the **DeepLenseSim** pipeline.
+#### Website: https://mywishanand.github.io/DeepLenseSim-AI-Agent/
+---
 
-## ✨ Unique Features & Scientific Innovations
+## 🚀 Core Capabilities
 
-- **🧠 Contextual Guard (No Hallucination Zone)**: Unlike standard AI agents, this system is **physically prohibited** from guessing parameters. It injects your raw prompt directly into the simulation tool to verify you actually typed the Model and Mass, ensuring 100% human-in-the-loop fidelity.
-- **⚛️ Physics-Strict Constraints**: Automated Pydantic-level validation for astrophysical consistency:
-    - **Redshift Ordering**: Rejects $z_{source} \leq z_{lens}$ with a scientific explanation.
-    - **Redshift Capping**: Hard-capped at $z \leq 1.0$ for instrument consistency.
-- **🛠️ Numerical Stabilization Patches**: Injected a global `colossus` background cosmology (`planck15`) in `tools.py`. This prevents the "Interpolation Range" crashes (`x_new < 0.001`) common in custom-redshift simulations.
-- **🌈 Model IV Multi-Band Synthesis**: Integrated a dedicated pipeline for **3-channel RGB synthesis** (`g`, `r`, `i` bands) for Model IV Euclid simulations.
-- **📂 Bifurcated Data Architecture**: Clear separation between your personal **Verification Gallery (`Tests/`)** and your live **Research Workspace (`output/`)**.
+- 💬 **Natural Language Interface**  
+  Interact with the system using plain English via **Ollama (Llama 3.2B)**.
 
-## 🚀 Quick Start
+- 🧠 **Agentic Workflow Orchestration**  
+  Uses **Pydantic AI** to structure, validate, and execute simulation pipelines.
 
-### 1. Prerequisites
-- **Ollama**: Install and run Ollama with `llama3.2` pulled:
+- 🖼️ **Simulation Output Formats**  
+  - `.npy` → Structured data with metadata  
+  - `.png` → Visualization-ready outputs  
+
+- ⚙️ **Full DeepLenseSim Coverage**  
+  Supports **all four model configurations**.
+
+- 👨‍💻 **Human-in-the-Loop Control**  
+  Ensures user confirmation through follow-up questions before execution.
+
+- 🛡️ **Anti-Hallucination Guardrails**  
+  Prevents the LLM from guessing or fabricating simulation parameters.
+
+---
+
+## ✨ Unique Functionalities
+
+- 🧠 **Contextual Guard (No Hallucination Zone)**
+
+  Unlike typical AI agents, this system:
+
+  - 🚫 **Cannot infer or guess parameters**
+  - ✅ Injects **raw user prompts directly into simulation validation**
+  - 🔍 Verifies explicit user input (e.g., model type, mass)
+  
+  👉 Result: **100% user-driven, verifiable simulations**
+
+
+- ⚛️ **Physics-Strict Constraints**
+
+  Built-in **astrophysical validation layer** using Pydantic:
+  
+  - 🌌 **Redshift Ordering Enforcement**  
+    Rejects invalid configurations where:  
+    `z_source > z_lens`
+  
+  - 📏 **Redshift Upper Bound**  
+    Enforces:  
+    `z ≤ 1.0` (instrument consistency)
+
+
+- 🛠️ **Numerical Stability Enhancements**
+  
+  - Integrated **global cosmology (`planck15`) via `colossus`**
+  - Prevents common interpolation crashes:  
+    `x_new < 0.001`
+  
+  👉 Ensures **robust simulations across custom redshift inputs**
+
+
+- 🌈 Model IV Multi-Band Synthesis
+  
+  - Dedicated pipeline for **RGB image generation**
+  - Supports **Euclid-like simulations** using:
+    - `g`, `r`, `i` bands
+
+---
+
+## ⚡ Quick Start
+
+#### 1️⃣ Prerequisites
+
+- 🧠 **Ollama** (with Llama 3.2 model)
+
   ```bash
-  ollama run llama3.2
+  ollama pull llama3.2
   ```
-- **Python 3.9+**
 
-### 2. Installation
+* 🐍 **Python 3.9+**
+
+---
+
+#### 2️⃣ Installation
+
 ```bash
-# Set up virtual environment
+# Create virtual environment
 python -m venv venv
 source venv/bin/activate
 
@@ -31,27 +95,57 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Run the Agent
+---
+
+#### 3️⃣ Run the Agent
+
 ```bash
 python agent.py
 ```
 
-### 4. How to Proceed
-1. Ensure Ollama is running (`ollama pull llama3.2`).
-2. Activate your environment: `source venv/bin/activate`.
-3. Launch the agent: `python agent.py`.
-4. Provide a prompt describing your desired simulation.
-   *Example:* "Generate 3 Model IV simulations with cdm, halo mass 2e12, and sigma_v 280."
+---
 
-## 📂 Project Structure
-- `agent.py`: Main Pydantic AI agent logic & chat loop.
-- `tools.py`: Simulation backend with Colossus stability patches.
-- `Schemas.py`: Rigid Pydantic validation schemas.
-- `DeepLenseSim/`: Submodule containing the core physics library.
-- `Tests/README.md`: Master list of 20 verification prompts.
-- `Tests/`: Static directory of example simulation results.
-- `output/`: Functional directory for subsequent simulation outputs (ignored by git).
+## 🧪 How to Use
+
+1️⃣ Start Ollama:
+
+   ```bash
+   ollama run llama3.2
+   ```
+
+2️⃣ Activate environment:
+
+   ```bash
+   source venv/bin/activate
+   ```
+
+3️⃣ Launch the agent:
+
+   ```bash
+   python agent.py
+   ```
+
+4️⃣ Provide a simulation prompt:
+
+   **Example:**
+
+   ```
+   Generate 3 Model IV simulations with cdm, halo mass 2e12, and sigma_v 280.
+   ```
 
 ---
 
-*This agent was developed to automate high-fidelity strong lensing research with human-in-the-loop oversight.*
+## 📂 Project Structure
+
+```
+├── agent.py              # Core agent logic & conversational loop
+├── tools.py              # Simulation backend + stability patches
+├── Schemas.py            # Pydantic validation schemas
+├── DeepLenseSim/         # Physics simulation submodule
+├── Tests/
+│   ├── README.md         # 20 validation prompts
+│   └── outputs/          # Verified simulation outputs
+├── output/               # Generated results
+```
+
+---

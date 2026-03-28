@@ -135,6 +135,20 @@ python agent.py
 
 ---
 
+## 🌐 Web Console (Streamlit)
+
+For a browser-native interactive experience, you can launch the **DeepLense Web Console**:
+
+1. Ensure Ollama is running (`llama3.2`).
+2. Run the Streamlit app:
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+
+Features include a **built-in image gallery** and **real-time chat** with the hardened agent.
+
+---
+
 ## 📂 Project Structure
 
 ```

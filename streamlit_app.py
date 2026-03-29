@@ -43,16 +43,19 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         if "images" in message:
-            for img_path in message["images"]:
-                if os.path.exists(img_path):
-                    st.image(img_path, caption=os.path.basename(img_path))
+            images = message["images"]
+            if images:
+                cols = st.columns(min(len(images), 3))
+                for idx, img_path in enumerate(images):
+                    if os.path.exists(img_path):
+                        with cols[idx % 3]:
+                            st.image(img_path, caption=os.path.basename(img_path), use_container_width=True)
 
 # Helper to extract image paths from agent output
 def extract_image_paths(text):
-    # Regex to find .png paths mentioned in the text, handles spaces better
-    # It looks for anything from a '/' or start of word until it sees '.png'
-    # Then we check if the path (potentially with spaces) exists.
-    matches = re.findall(r'(/[^\n]+?\.png|[^\n]+?\.png)', text)
+    # Matches paths starting with / or output/ and ending in .png
+    # Allows spaces but stops at quotes, backticks, or double-newlines.
+    matches = re.findall(r'((?:/|output/)[^`"\n]+?\.png)', text)
     valid_paths = []
     for m in matches:
         p = m.strip().strip("`").strip("'").strip('"')
@@ -89,10 +92,13 @@ if prompt := st.chat_input("Ask for a simulation (e.g. 'Model 1, CDM, 1e12 mass,
             # Extract images
             images = extract_image_paths(output_text)
             
-            # Update display
+            # Update display with grid
             message_placeholder.markdown(output_text)
-            for img in images:
-                st.image(img, caption=os.path.basename(img))
+            if images:
+                cols = st.columns(min(len(images), 3))
+                for idx, img in enumerate(images):
+                    with cols[idx % 3]:
+                        st.image(img, caption=os.path.basename(img), use_container_width=True)
                 
             # Update session state
             st.session_state.messages.append({

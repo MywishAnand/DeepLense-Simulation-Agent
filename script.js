@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Apply reveal to cards and sections
-    document.querySelectorAll('.card, .gallery-section, .chat-demo').forEach(el => {
+    // Apply reveal to cards, sections, and console
+    document.querySelectorAll('.card, .gallery-section, .streamlit-console').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -27,18 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
-    // Mock Chat Typewriter Effect (Initial Greeting)
-    const agentMessages = document.querySelectorAll('.agent-msg');
-    agentMessages.forEach((msg, index) => {
-        // Just a subtle fade in stagger for now
-        msg.style.transitionDelay = `${(index + 1) * 0.5}s`;
-    });
-
-    console.log('🌌 DeepLense Dashboard Initialized');
+    console.log('🌌 DeepLense Dashboard Initialized with Streamlit Console Support');
 });

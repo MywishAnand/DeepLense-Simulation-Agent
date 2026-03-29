@@ -119,4 +119,14 @@ if prompt := st.chat_input("Ask for a simulation (e.g. 'Model 1, CDM, 1e12 mass,
             st.session_state.messages.append({"role": "assistant", "content": final_error})
 
 st.markdown("---")
-st.caption("© Created by Mywish Anand. GitHub: https://github.com/MywishAnand/")
+st.markdown(
+    """
+    <div style="text-align: center; color: grey; font-size: 0.8rem;">
+        © Created by Mywish Anand. 
+        <a href="https://github.com/MywishAnand/" target="_blank">
+            <img src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-github-1.png" width="20" height="20" style="vertical-align: middle; margin-left: 5px;">
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)

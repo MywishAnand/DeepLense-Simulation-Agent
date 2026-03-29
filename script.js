@@ -23,18 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Simple smooth scroll for internal links
+    // Robust smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    e.preventDefault();
+                    console.log(`🚀 Scrolling to #${targetId}`);
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
 
-    console.log('🌌 DeepLense Dashboard Initialized with Streamlit Console Support');
+    console.log('🌌 DeepLense Dashboard Initialized with Console Support');
 });

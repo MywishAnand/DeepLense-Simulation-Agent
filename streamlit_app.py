@@ -119,4 +119,4 @@ if prompt := st.chat_input("Ask for a simulation (e.g. 'Model 1, CDM, 1e12 mass,
             st.session_state.messages.append({"role": "assistant", "content": final_error})
 
 st.markdown("---")
-st.caption("Powered by Pydantic AI & DeepLenseSim. Developed for MywishAnand.")
+st.caption("© Created by Mywish Anand. GitHub: https://github.com/MywishAnand/")

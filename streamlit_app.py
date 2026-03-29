@@ -126,6 +126,7 @@ st.markdown(
         <a href="https://github.com/MywishAnand/" target="_blank" style="text-decoration: none; vertical-align: middle; margin-left: 5px;">
             <img src="https://img.shields.io/badge/GitHub-MywishAnand-181717?style=flat-square&logo=github" alt="GitHub" style="vertical-align: middle;">
         </a>
+        <span style="vertical-align: middle; margin-left: 5px;">MywishAnand</span>
     </div>
     """,
     unsafe_allow_html=True

@@ -54,8 +54,8 @@ def run_deeplens_simulation(ctx: RunContext[AgentDeps], config: SimulationConfig
     # Verification logic: Ensure the user actually mentioned the core parameters
     # This stops the LLM from 'guessing' defaults.
     mandatory_checks = {
-        "model": ["model_i", "model_ii", "model_iii", "model_iv", "model 1", "model 2", "model 3", "model 4"],
-        "substructure": ["cdm", "axion", "no_sub", "no substructure"],
+        "model": ["model_i", "model_ii", "model_iii", "model_iv", "model 1", "model 2", "model 3", "model 4", "Model_i", "Model_ii", "Model_iii", "Model_iv", "Model 1", "Model 2", "Model 3", "Model 4", "model i", "model ii", "model iii", "model iv", "model 1", "model 2", "model 3", "model 4", "Model i", "Model ii", "Model iii", "Model iv", "Model I", "Model II", "Model III", "Model IV", "model I", "model II", "model III", "model IV"],
+        "substructure": ["cdm", "axion", "no_sub", "no substructure", "no sub", "NO SUB", "CDM", "AXION", "Axion", "No Sub"],
         "mass": ["mass", "solar masses", "e11", "e12", "e13"]
     }
     
